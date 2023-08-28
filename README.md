@@ -10,7 +10,7 @@ Fork this repo, add your Streamlit app to it, and run it on GitHub Codespaces. :
     -  Edit the `postAttachCommand` to launch your app instead of Streamlit Hello. E.g. if your script is `app.py`:
         ```json
         "postAttachCommand": "streamlit run app.py",
-        ```
+   https://studious-winner-75xrg74qpjfq67.github.dev/     ```
 - It uses `forwardPorts` to make port `8501` inside the container available locally.
 - Additionally, it sets the following configuration options in `.streamlit/config.toml` so that the app can be run on Codespaces without the addition of command line arguments:
 

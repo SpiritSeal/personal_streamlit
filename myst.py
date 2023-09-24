@@ -1,9 +1,14 @@
 import streamlit as st
 
+st.set_page_config(
+    page_title="Dashboard",
+    page_icon="👋",
+)
+
 def main():
-    st.title("Streamlit Boilerplate")
+    st.title("Dashboard")
     st.sidebar.markdown('# Landing Page')
-    st.write("Welcome to your Streamlit app!")
+    st.write("This is the app Dashboard!")
 
 
 if __name__ == "__main__":

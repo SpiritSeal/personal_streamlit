@@ -1,0 +1,64 @@
+<div id="clock"></div>
+<button onclick="fullscreenClock()">Fullscreen</button>
+<style>
+    #clock {
+        font-family: monospace;
+        text-align: center;
+        margin: auto;
+        margin-top: 100px;
+        color: white;
+    }
+    #clock:fullscreen {
+        background-color: rgb(14,17,23);
+        font-size: 350px;
+        margin-top: 2000px;
+    }
+</style>
+<script>
+    const normalClockSize = "200px"
+    const fullscreenClockSize = "350px"
+    const clock = document.querySelector("#clock")
+    clock.style.fontSize = normalClockSize
+
+
+    function fullscreenClock() {
+        clock.requestFullscreen()
+    }
+    function unFullscreenClock() {
+        document.exitFullscreen()
+    }
+
+    clock.addEventListener("click", fullscreenClock)
+    // on fullscreen
+    clock.addEventListener("fullscreenchange", () => {
+        if (document.fullscreenElement) {
+            clock.style.fontSize = fullscreenClockSize
+            clock.style.marginTop = "0px"
+            clock.removeEventListener("click", fullscreenClock)
+            document.addEventListener("click", unFullscreenClock)
+        } else {
+            clock.style.fontSize = normalClockSize
+            clock.style.marginTop = "100px"
+            clock.addEventListener("click", fullscreenClock)
+            document.removeEventListener("click", unFullscreenClock)
+        }
+    })
+
+    console.log(clock)
+    function zeroPad(input) {
+        return input.toString().padStart(2, "0")
+    }
+    function updateClock() {
+        var now = new Date()
+        const hours = zeroPad(now.getHours())
+        const mins = zeroPad(now.getMinutes())
+        const secs = zeroPad(now.getSeconds())
+        // clock.innerHTML = `${hours}:${mins}:${secs}`
+        // I don't want seconds for now, but I don't want to delete this code >:( smh
+        // Need to add an option for this in the future
+        clock.innerHTML = `${hours}:${mins}`
+        console.log(clock.innerHTML)
+    }
+    setInterval(updateClock, 1000)
+
+</script>

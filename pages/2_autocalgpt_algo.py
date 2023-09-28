@@ -2,6 +2,27 @@ import streamlit as st
 from utils import hide_streamlit_style
 import openai
 
+'''
+TODO:
+- Clean up the code
+- Parse date and time events to be in the format that Google Calendar accepts
+    - Then actually make a button that adds the event to Google Calendar
+[
+    See:
+    - https://support.google.com/calendar/thread/128416249/calendar-url-generator-which-parameters?hl=en
+    - https://developers.google.com/calendar/api/v3/reference/events/i
+    - https://github.com/InteractionDesignFoundation/add-event-to-calendar-docs/blob/main/services/google.mdnsert
+]
+- Clean up/ modularize the code so that the prompts are all in one place
+    - Mb use a langchain implementation?
+
+
+Later:
+- iCal/ etc integration
+'''
+
+
+
 st.set_page_config(
     page_title="Autocalendar GPT Algorithm",
     page_icon="📅",
